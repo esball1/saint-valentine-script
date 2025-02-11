@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+    <style>
+        body {
+            background-color: lightpink;
+            color: white;
+            font: normal 20px Arial;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            flex-direction: row;
+            text-align: center;
+        } 
+        h1 {
+            color: white;
+            font-size: 40px; /* Aumentar o tamanho da pergunta */
+        }
+        button {
+            border: none;
+            padding: 20px 40px; /* Aumentar o tamanho dos botões */
+            font-size: 20px; /* Aumentar o tamanho da fonte dos botões */
+            margin: 10px;
+            cursor: pointer;
+        }
+        #btnSim {
+            background-color: green;
+            color: white;
+        }
+        #btnNao {
+            background-color: red;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .image-container img {
+            max-width: 200px; /* Aumentar o tamanho das imagens */
+            max-height: 200px; /* Aumentar o tamanho das imagens */
+        }
+        .content {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function changeButtons() {
+            var buttonSim = document.getElementById("btnSim");
+            var buttonNao = document.getElementById("btnNao");
+            var naoWidth = buttonNao.offsetWidth;
+            var naoHeight = buttonNao.offsetHeight;
+            var simWidth = buttonSim.offsetWidth;
+            var simHeight = buttonSim.offsetHeight;
+
+            var interval = setInterval(function() {
+                if (naoWidth > 0 && naoHeight > 0) {
+                    naoWidth -= 2;
+                    naoHeight -= 2;
+                    buttonNao.style.width = naoWidth + "px";
+                    buttonNao.style.height = naoHeight + "px";
+                } else {
+                    clearInterval(interval);
+                }
+                simWidth += 2;
+                simHeight += 2;
+                buttonSim.style.width = simWidth + "px";
+                buttonSim.style.height = simHeight + "px";
+            }, 100);
+        }
+
+        function showEba() {
+            document.body.innerHTML = '<h1 style="font-size: 100px; color: white;">EBA!!</h1>';
+            document.body.style.backgroundColor = 'lightpink';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="osaka.png" alt="Imagem Centro-Esquerda">
+        </div>
+        <div class="content">
+            <h1>Oi, quer sair comigo dia 14?</h1>
+            <div class="buttons">
+                <button id="btnSim" onclick="showEba()">Sim</button>
+                <button id="btnNao" onclick="changeButtons()">Não</button>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="bird.png" alt="Imagem Centro-Direita">
+        </div>
+    </div>
+</body>
+</html
